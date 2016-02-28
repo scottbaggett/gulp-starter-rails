@@ -1,0 +1,94 @@
+{
+  "root": {
+    "src": "./src/",
+    "app": "./app/",
+    "dest": "./public/"
+  },
+
+  "tasks": {
+    "browserSync": {
+      "proxy": "gulp-rails.dev",
+      "notify": false,
+      "snippetOptions": {
+        "whitelist": ["/admin/**", "/admin"]
+      },
+      "open": false
+    },
+
+    "static": {
+      "src": "static",
+      "dest": "./"
+    },
+
+    "js": {
+      "src": "javascripts",
+      "dest": "javascripts",
+      "extractSharedJs": true,
+      "entries": {
+        "app": ["./main.js"]
+      },
+      "extensions": ["js"]
+    },
+
+    "views": {
+      "src": "views",
+      "extensions": ["erb", "html", "slim"]
+    },
+
+    "css": {
+      "src": "stylesheets",
+      "dest": "stylesheets",
+      "autoprefixer": {
+        "browsers": ["last 3 version"]
+      },
+      "sass": {
+        "indentedSyntax": true,
+        "includePaths": [
+          "node_modules/normalize-css",
+          "node_modules/breakpoint-sass/stylesheets"
+        ]
+      },
+      "extensions": ["sass", "scss", "css"]
+    },
+
+    "html": {
+      "src": "html",
+      "dest": "./",
+      "dataFile": "data/global.json",
+      "htmlmin": {
+        "collapseWhitespace": true
+      },
+      "extensions": ["html", "json"],
+      "excludeFolders": ["layouts", "shared", "macros", "data"]
+    },
+
+    "images": {
+      "src": "images",
+      "dest": "images",
+      "extensions": ["jpg", "png", "svg", "gif"]
+    },
+
+    "fonts": {
+      "src": "fonts",
+      "dest": "fonts",
+      "extensions": ["woff2", "woff", "eot", "ttf", "svg"]
+    },
+
+    "iconFont": {
+      "src": "icons",
+      "dest": "fonts",
+      "options": {
+        "appendUnicode": false,
+        "normalize": true
+      },
+      "sassDest": "generated",
+      "extensions": ["woff2", "woff", "eot", "ttf", "svg"]
+    },
+
+    "svgSprite": {
+      "src": "sprites",
+      "dest": "images",
+      "extensions": ["svg"]
+    }
+  }
+}

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GulpRails</title>
+  <%= stylesheet_link_tag gulp_css_path('main.css') %>
+  <%= javascript_include_tag gulp_js_path('shared.js') %>
+  <%= javascript_include_tag gulp_js_path('application.js') %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
